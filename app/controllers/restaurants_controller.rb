@@ -9,7 +9,7 @@ class RestaurantsController < ApplicationController
     if @restaurant.save
       redirect_to @restaurant, notice: 'Restaurant was successfully created.'
     else
-      render :new
+      render "restaurants/new"
     end
   end
 
@@ -19,6 +19,7 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    @review = Review.new
   end
 
   private
